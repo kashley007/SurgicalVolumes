@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head lang="en">
+		
+	    <meta charset="UTF-8">
+	    <title>{{ title }}</title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row" id="header_row">
+	    		<img src="file:\Users\kdashley\Documents\logo.jpg">
+	    		<p>{{ location }} <br/> {{ month }} - {{ year }}</p>
+	    	</div>
+	    	<div style="clear:both;"></div>
+	    </div>
+	    <div class="container">
+	    	<h2>Surgeon Case Volumes </h2>
+	     	{{ surgeonCase_pivot_table }}
+	    </div>
+	    <p style="page-break-before: always" ></p>
+	    <div class="container">
+	    	<h2>Surgeon Cases by Service </h2>
+	     	{{ surgeonCaseService_pivot_table }}
+	    </div>
+	    <p style="page-break-before: always" ></p>
+	    <div class="container">
+	    	<h2>Surgeon Cases by Procedure Level </h2>
+	     	{{ procedureLevelSurgeon_pivot_table }}
+	    </div>
+	    <p style="page-break-before: always" ></p>
+	    <div class="container">
+	    	<h2>Cases by Procedure Level </h2>
+	     	{{ procedureLevel_pivot_table }}
+	    </div>
+	    <p style="page-break-before: always" ></p>
+	    <div class="container">
+	    	<h2>Case Service by Patient Type </h2>
+	     	{{ serviceCasePType_pivot_table }}
+	    </div>
+	    <p style="page-break-before: always" ></p>
+	    <div class="container">
+	    	<h2>Daily Case Volumes</h2>
+	     	{{ dailyCasePType_pivot_table }}
+	    </div>
+	    <p style="page-break-before: always" ></p>
+	    <div class="container">
+	    	<h2>Case Totals</h2>
+	     	{{ totals_pivot_table }}
+	     	{{addEndoString}}
+	    </div>
+	    <p style="page-break-before: always" ></p>
+	    <div class="container">
+	    	<h2>Procedures by Surgeon</h2>
+	     	{{ procedureSurgeon_pivot_table }}
+	    </div>
+	    <p style="page-break-before: always" ></p>
+	    <div class="container">
+	    	<h2>Procedures by Service</h2>
+	     	{{ procedureService_pivot_table }}
+	    </div>
+	    {{newPage}}
+	    <div class="container">
+	    	<h2>{{endo}}</h2>
+	     	{{ endoCases_pivot_table }}
+	     	{{endoTotal}}
+	    </div>
+	    {{newPage}}
+	    <div class="container">
+	    	<h2>{{endoP}}</h2>
+	     	{{ endoProcedure_pivot_table }}
+	     	{{endoPro}}
+	    </div>
+	    {{newPage2}}
+	    <div class="container">
+	    	<h2>{{pain}}</h2>
+	     	{{ painCases_pivot_table }}
+	     	{{PainCasetotal}}
+	    </div>
+	    {{newPage2}}
+	    <div class="container">
+	    	<h2>{{painP}}</h2>
+	     	{{ painProcedures_pivot_table }}
+	     	{{PainProTotal}}
+	    </div>
+	</body>
+</html>
