@@ -11,7 +11,7 @@ from jinja2 import Environment, FileSystemLoader
 from weasyprint import HTML
 import pandas as pd
 import numpy as np
-import dfManip
+import df_manip
 import endo
 import pain
 
@@ -22,8 +22,8 @@ def create_pdf(df, dates, years, i, total_case):
     #Create Pivot Tables for Case Data===============================
 
     if i == 'CRMH MAIN OR':
-        df_endo = endo.getEndoCases(df)
-        df_main = dfManip.getMainDF(df)
+        df_endo = endo.get_endo_cases(df)
+        df_main = df_manip.get_main_df(df)
         endo_procedures = pd.pivot_table(df_endo, index=["Date"], \
             values=["EndoProcedureCount"], aggfunc=np.sum)
         endo_procedure_count = df["EndoProcedureCount"].sum()
@@ -69,7 +69,7 @@ def create_pdf(df, dates, years, i, total_case):
             values=["NonEndoProcedureCount"], aggfunc=np.sum, margins=True)
     else:
         if i == 'RCH AMB SURG':
-            df_endo = endo.getEndoCases(df)
+            df_endo = endo.get_endo_cases(df)
             endo_cases = pd.pivot_table(df_endo, index=["Date"],\
                 values=["EndoCase"], aggfunc='count')
 
@@ -78,7 +78,7 @@ def create_pdf(df, dates, years, i, total_case):
 
             endo_procedure_count = df["EndoProcedureCount"].sum()
 
-            df_pain = pain.painfilter(df)
+            df_pain = pain.pain_filter(df)
 
             pain_procedures = pd.pivot_table(df_pain, index=["Date"],\
                 values=["TotalProcedureCount"], aggfunc=np.sum)

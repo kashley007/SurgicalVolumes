@@ -1,14 +1,19 @@
+"""
+This module executes the calculation of OR volumes 
+and creates a pdf report for each location found in the
+data set 
+"""
 #Import Libraries----------------------------------------------------------
 import calendar
-import commandLineArgs
-import importFromExcel
+import command_line_args
+import import_from_excel
 import PDF
-import dfManip
+import df_manip
 import endo
 #--------------------------------------------------------------------------
 
-#Run a volumes report taking the parameters of df(DataFrame) and args(command-line arguments)
-def runVolumesReport(df, args):
+def run_volumes_report(df, args):
+    """Run a volumes report taking the parameters of df(DataFrame) and args(command-line arguments)"""
     
     #Get all locations 
     location_df = df.Location.unique()
@@ -16,29 +21,30 @@ def runVolumesReport(df, args):
     
     if (args.month and args.year):
 
-        monthNum = int(args.month)
-        month = calendar.month_name[monthNum]
+        month_num = int(args.month)
+        month = calendar.month_name[month_num]
         year = int(args.year)
 
-        df_monthYear = dfManip.applyMonthYearFilter(df, monthNum, year)
-        totalCase = 0
+        df_month_year = df_manip.apply_month_year_filter(df, month_num, year)
+        total_case = 0
         for i in location_df:
             #Get data for month and year given at command-line
-            df_location = dfManip.applyLocationFilter(df_monthYear,i)
+            df_location = df_manip.apply_location_filter(df_month_year,i)
             if(i == 'CRMH MAIN OR' ):
-                df_endo = endo.getEndoCases(df_location)
-                totalCase = len(df_endo.index)
+                df_endo = endo.get_endo_cases(df_location)
+                total_case = len(df_endo.index)
             #create PDF for location_df[i]
-            PDF.create_pdf(df_location, month, year, i, totalCase)
+            PDF.create_pdf(df_location, month, year, i, total_case)
 
     else:
         print("Not yet built")
 #--------------------------------------------------------------------------
-#Main Program Execution----------------------------------------------------
+
 def main():
-    args = commandLineArgs.handleCommandLineArgs()
-    df = importFromExcel.getDataFromExcel(args)
-    runVolumesReport(df, args)
+    """Main Program Execution"""
+    args = command_line_args.handle_command_line_args()
+    df = import_from_excel.get_excel_data(args)
+    run_volumes_report(df, args)
 
 if __name__ == "__main__":
     main()
