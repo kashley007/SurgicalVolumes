@@ -1,23 +1,34 @@
-#Find Endo Cases
+"""
+This module includes the necessary functions to
+find and analyze endo cases performed in the OR
+"""
+
 def findEndo(row):
-    if((row['TotalProcedureCount'] > 0) and (row['TotalProcedureCount'] == row['EndoProcedureCount'])):
-        return 'Endo'
-    elif((row['Location'] == 'CRMH MAIN OR') and (row['TotalProcedureCount'] > row['EndoProcedureCount']) and (row['EndoProcedureCount'] > 0)):
-        return 'Both'
-    else:
-        return 'Non Endo'
+	"""Find Endo Cases"""
+
+	if((row['TotalProcedureCount'] > 0) and (row['TotalProcedureCount'] == row['EndoProcedureCount'])):
+		return 'Endo'
+	elif((row['Location'] == 'CRMH MAIN OR') and (row['TotalProcedureCount'] > row['EndoProcedureCount']) and (row['EndoProcedureCount'] > 0)):
+		return 'Both'
+	else:
+		return 'Non Endo'
 
 def getEndoCases(df):
-    df_endo = df.query('EndoCase == "Endo"')
-    return df_endo
+	"""Filter the Dataframe with Endo cases only"""
+
+	df_endo = df.query('EndoCase == "Endo"')
+	return df_endo
 
 def countEndoProcedures(row):
-    endoProcedureCount = 0
-    endoPro = row['Procedures'].lower()
-    procedures = endoPro.split("]")   
-    for procedure in procedures:
-        if('(endo)' in procedure):
-            endoProcedureCount = endoProcedureCount + 1
-        elif('(endo)' not in procedure):
-                endoProcedureCount = endoPro.count('egd') + endoPro.count('ercp') + endoPro.count('colonoscopy') + endoPro.count('sigmoidoscopy') + endoPro.count('bronchoscopy')
-    return endoProcedureCount
+	"""Count the Endo procedures performed in the OR"""
+
+	endo_procedure_count = 0
+	endo_pro = row['Procedures'].lower()
+	procedures = endo_pro.split("]")
+	for procedure in procedures:
+		if('(endo)' in procedure):
+			endo_procedure_count = endo_procedure_count + 1
+		elif('(endo)' not in procedure):
+			endo_procedure_count = endo_pro.count('egd') + endo_pro.count('ercp') + \
+			endo_pro.count('colonoscopy') + endo_pro.count('sigmoidoscopy') + endo_pro.count('bronchoscopy')
+	return endo_procedure_count
