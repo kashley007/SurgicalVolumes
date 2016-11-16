@@ -29,7 +29,7 @@ def runVolumesReport(df, args):
                 df_endo = endo.getEndoCases(df_location)
                 totalCase = len(df_endo.index)
             #create PDF for location_df[i]
-            PDF.createPDF(df_location, month, year, i, totalCase)
+            PDF.create_pdf(df_location, month, year, i, totalCase)
 
     else:
         print("Not yet built")

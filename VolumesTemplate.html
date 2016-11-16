@@ -15,72 +15,72 @@
 	    </div>
 	    <div class="container">
 	    	<h2>Surgeon Case Volumes </h2>
-	     	{{ surgeonCase_pivot_table }}
+	     	{{ surgeon_case_pivot_table }}
 	    </div>
 	    <p style="page-break-before: always" ></p>
 	    <div class="container">
 	    	<h2>Surgeon Cases by Service </h2>
-	     	{{ surgeonCaseService_pivot_table }}
+	     	{{ surgeon_case_service_pivot_table }}
 	    </div>
 	    <p style="page-break-before: always" ></p>
 	    <div class="container">
 	    	<h2>Surgeon Cases by Procedure Level </h2>
-	     	{{ procedureLevelSurgeon_pivot_table }}
+	     	{{ procedure_level_surgeon_pivot_table }}
 	    </div>
 	    <p style="page-break-before: always" ></p>
 	    <div class="container">
 	    	<h2>Cases by Procedure Level </h2>
-	     	{{ procedureLevel_pivot_table }}
+	     	{{ procedure_level_pivot_table }}
 	    </div>
 	    <p style="page-break-before: always" ></p>
 	    <div class="container">
 	    	<h2>Case Service by Patient Type </h2>
-	     	{{ serviceCasePType_pivot_table }}
+	     	{{ service_case_ptype_pivot_table }}
 	    </div>
 	    <p style="page-break-before: always" ></p>
 	    <div class="container">
 	    	<h2>Daily Case Volumes</h2>
-	     	{{ dailyCasePType_pivot_table }}
+	     	{{ daily_case_ptype_pivot_table }}
 	    </div>
 	    <p style="page-break-before: always" ></p>
 	    <div class="container">
 	    	<h2>Case Totals</h2>
 	     	{{ totals_pivot_table }}
-	     	{{addEndoString}}
+	     	{{add_endo_string}}
 	    </div>
 	    <p style="page-break-before: always" ></p>
 	    <div class="container">
 	    	<h2>Procedures by Surgeon</h2>
-	     	{{ procedureSurgeon_pivot_table }}
+	     	{{ procedure_surgeon_pivot_table }}
 	    </div>
 	    <p style="page-break-before: always" ></p>
 	    <div class="container">
 	    	<h2>Procedures by Service</h2>
-	     	{{ procedureService_pivot_table }}
+	     	{{ procedure_service_pivot_table }}
 	    </div>
-	    {{newPage}}
+	    {{new_page}}
 	    <div class="container">
 	    	<h2>{{endo}}</h2>
-	     	{{ endoCases_pivot_table }}
-	     	{{endoTotal}}
+	     	{{ endo_cases_pivot_table }}
+	     	{{endo_total}}
 	    </div>
-	    {{newPage}}
+	    {{new_page}}
 	    <div class="container">
-	    	<h2>{{endoP}}</h2>
-	     	{{ endoProcedure_pivot_table }}
-	     	{{endoPro}}
+	    	<h2>{{endo_p}}</h2>
+	     	{{ endo_procedure_pivot_table }}
+	     	{{endo_pro}}
 	    </div>
-	    {{newPage2}}
+	    {{new_page2}}
 	    <div class="container">
 	    	<h2>{{pain}}</h2>
-	     	{{ painCases_pivot_table }}
-	     	{{PainCasetotal}}
+	     	{{ pain_cases_pivot_table }}
+	     	{{Pain_case_total}}
 	    </div>
-	    {{newPage2}}
+	    {{new_page2}}
 	    <div class="container">
-	    	<h2>{{painP}}</h2>
-	     	{{ painProcedures_pivot_table }}
-	     	{{PainProTotal}}
+	    	<h2>{{pain_p}}</h2>
+	     	{{ pain_procedures_pivot_table }}
+	     	{{Pain_pro_total}}
 	    </div>
 	</body>
 </html>
